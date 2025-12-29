@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta lang="ru">
-  <title>Выбор темы | MathAR</title>
+  <title>{{tem['nazv']}} | MathAR</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="icon" type="image" href="../static/favicon.ico">
   <meta name="Автор" content="Крылов Игорь">
@@ -15,36 +15,41 @@
     <p class="tc t40px" style="margin-top: 6vh; margin-bottom: 4vh;">
     {{tem['nazv']}}
   </p>
-  <div class="opis" style="margin-top: calc(4vh);">
+  <div class="opis round1" style="margin-top: calc(4vh);">
     <p class="t2" style="color: rgb(189, 189, 189); margin: 20px;
     font-size: 25px;">
-      {{tem['opis']}}
+      {{tem['opis'] | safe}}
     </p>
   </div>
 
   {% for t in tem['teor'] %}
 
-  <div class="blok">
+  <div class="blok round1">
     <div class="imgd">
-      <img src="../static/{{clas}}/{{nom}}/{{t[1]}}.png" 
-        style="height: 100%;">
+      <img class="round1"
+        src="../static/{{clas}}/{{nom}}/{{t[1]}}.png" 
+        style="height: var(--imgdH);">
     </div>
     <div>
       <p class="t2" style="margin: 30px;
       font-size: 25px;">
       {{t[0] | safe}}
       </p>
+      <math>
+        <msup></msup>
+      </math>
       
-    </div>
+    </div>  
   </div>
 
   {% endfor %}
 
-  <div class="opis" style="margin: 4vh;">
+  <div class="opis round1" style="margin: 4vh;">
     <p class="tc" style="width: 70%; margin: 30px; font-size: 32px;"">
     Изучение стереометрии с использованием дополненной реальности
     </p>
   </div>
+  
   
   </div>
   </div>
@@ -52,6 +57,11 @@
 </body>
 
 <style>
+
+
+.round1 {
+  border-radius: 15px;
+}
 
 .opis {
   height: fit-content;
@@ -63,20 +73,26 @@
 
 .blok {
   width: 80%;
-  height: min-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   background-color: rgb(75, 75, 75);
-  margin-top: calc(4vh);
+  margin-top: 4vh;
 }
 
 .imgd {
-  height: 20%;
+  height: var(--imgdH);
   width: fit-content;
   margin: 30px;
+}
+
+math {
+  font-family: Arial, sans-serif;
 }
 
 </style>
 
 </html>
+
+

@@ -1,4 +1,8 @@
 
+:root {
+  --imgdH: 22vh;
+}
+
 .a1 {
   text-decoration: none;
   color: white;
@@ -59,22 +63,10 @@
   justify-content: center;
 }
 .centerSub {
-  height: calc(vh);
-  width: 70%;
+  height: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
 
 }
-/* {
-    "nazv": "Название",
-    "opis": "Описание",
-    "teor": [
-            ["Первый блок", 1],
-            ["Второй блок", 2],
-            ["Третий и т.д.", 3]
-    ],
-    "zadanie": ["Текст задания", 4],
-    "resh": ["Решение задания", 5]
-        
-}
- */
+

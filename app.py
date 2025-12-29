@@ -7,8 +7,35 @@ import json
 
 from to1string import to1str1
 
+
+
+
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # Секретный ключ для сессий
+
+def br_adder(text):
+    nt = ""
+    for i in text:
+        if(i == "\n"):
+            nt += "<br>\n"
+        else:
+            nt += i
+    return nt
+
+def br_lines(opened: list[str]):
+    intag = False
+    nopen = ""
+    for l in opened:
+        if "<math>" in l:
+            intag = True
+        elif "</math>" in l:
+            intag = False
+        if intag:
+            nopen += l
+        else:
+            nopen += l[:-1] + "<br>\n"
+    return nopen
+
 
 @app.route("/")
 def home():
@@ -29,17 +56,20 @@ def tema(clas, nom):
     path = f"static\\{clas}\\{nom}"
 
     r = open(f"{path}\\tema.json",
-        encoding="UTF-8").read()
-    l = json.loads(r)
+        encoding="UTF-8")
+    l = json.loads(r.read())
 
-    l['opis'] = open(f"{path}\\0.txt", 
-        encoding="UTF-8").read()
+    l['opis'] = br_lines(open(f"{path}\\0.txt", 
+        encoding="UTF-8").readlines())
 
     for i in range(1, len(l['teor'])+1):
         path2 = f"{path}\\{i}.txt"
-        ftem = open(path2, 
-        encoding="UTF-8").read()
-        l['teor'][i - 1][0] = ftem[4:]
+        path2_2 = f"{path}\\{i}.html"
+        try:
+            ftem = open(path2, encoding="UTF-8").readlines()
+        except:
+            ftem = open(path2_2, encoding="UTF-8").readlines()
+        l['teor'][i - 1][0] = br_lines(ftem)
 
 
     return render_template("tema1.html", tem = l, clas = clas, nom = nom)

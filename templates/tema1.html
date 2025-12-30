@@ -16,7 +16,7 @@
     {{tem['nazv']}}
   </p>
   <div class="opis round1" style="margin-top: calc(4vh);">
-    <p class="t2" style="color: rgb(189, 189, 189); margin: 20px;
+    <p class="t2" style="color: rgb(229, 229, 229); margin: 20px;
     font-size: 25px;">
       {{tem['opis'] | safe}}
     </p>
@@ -25,19 +25,20 @@
   {% for t in tem['teor'] %}
 
   <div class="blok round1">
+    {% if t[1] != None %}
     <div class="imgd">
-      <img class="round1"
-        src="../static/{{clas}}/{{nom}}/{{t[1]}}.png" 
-        style="height: var(--imgdH);">
+      {% for image in t[1] %}
+          <img class="round1"
+            src="../static/{{clas}}/{{nom}}/{{image}}" 
+            style="height: var(--imgdH);">
+      {% endfor %}
+      
     </div>
+    {% endif %}
     <div>
-      <p class="t2" style="margin: 30px;
-      font-size: 25px;">
+      <div style="margin: 30px;">
       {{t[0] | safe}}
-      </p>
-      <math>
-        <msup></msup>
-      </math>
+      </div>
       
     </div>  
   </div>
@@ -77,18 +78,21 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   background-color: rgb(75, 75, 75);
   margin-top: 4vh;
 }
 
 .imgd {
   height: var(--imgdH);
-  width: fit-content;
+  width: 100%;
   margin: 30px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 math {
-  font-family: Arial, sans-serif;
+  font-family: math;
 }
 
 </style>

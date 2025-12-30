@@ -10,16 +10,28 @@
   justify-content: center;
 }
 
+.m0 {
+  margin: 0px;
+}
+
 .tc {
   text-align: center;
   font-family: Arial, sans-serif;
 }
 
+.t25px {
+  font-size: 25px;
+}
 .t30px {
   font-size: 30px;
 }
 .t40px {
   font-size: 40px;
+}
+
+.tf {
+  font-family: Arial, sans-serif;
+  text-align: left;
 }
 
 .t1 {

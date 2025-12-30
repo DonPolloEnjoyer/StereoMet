@@ -22,13 +22,19 @@ def br_adder(text):
             nt += i
     return nt
 
+def sub(subs: list, main: list | str):
+    for s in subs:
+        if(s in main):
+            return True
+    return False
+
 def br_lines(opened: list[str]):
     intag = False
     nopen = ""
     for l in opened:
-        if "<math>" in l:
+        if sub(["<math", "wobr"], l):
             intag = True
-        elif "</math>" in l:
+        elif sub(["</math>", "wbr"], l):
             intag = False
         if intag:
             nopen += l
@@ -60,7 +66,7 @@ def tema(clas, nom):
     l = json.loads(r.read())
 
     l['opis'] = br_lines(open(f"{path}\\0.txt", 
-        encoding="UTF-8").readlines())
+        encoding="UTF-8").readlines()[1:])
 
     for i in range(1, len(l['teor'])+1):
         path2 = f"{path}\\{i}.txt"
@@ -69,6 +75,7 @@ def tema(clas, nom):
             ftem = open(path2, encoding="UTF-8").readlines()
         except:
             ftem = open(path2_2, encoding="UTF-8").readlines()
+        ftem.pop(0)
         l['teor'][i - 1][0] = br_lines(ftem)
 
 

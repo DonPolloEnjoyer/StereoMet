@@ -16,7 +16,7 @@
     {{tem['nazv']}}
   </p>
   <div class="opis round1" style="margin-top: calc(4vh);">
-    <p class="t2" style="color: rgb(229, 229, 229); margin: 20px;
+    <p class="t2" style="color: rgb(229, 229, 229); margin: 30px;
     font-size: 25px;">
       {{tem['opis'] | safe}}
     </p>
@@ -27,10 +27,14 @@
   <div class="blok round1">
     {% if t[1] != None %}
     <div class="imgd">
+
       {% for image in t[1] %}
-          <img class="round1"
-            src="../static/{{clas}}/{{nom}}/{{image}}" 
+          <div class="imgSingle">
+            <img class="round1"
+            src="../static/{{clas}}/{{nom}}/{{image[0]}}"
             style="height: var(--imgdH);">
+            <p class="tf t20px m10px">{{image[1]}}</p>
+          </div>
       {% endfor %}
       
     </div>
@@ -59,6 +63,9 @@
 
 <style>
 
+.fracN {
+  math-style: normal;
+}
 
 .round1 {
   border-radius: 15px;
@@ -83,10 +90,21 @@
   margin-top: 4vh;
 }
 
+.imgSingle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: max-content;
+  color: rgb(214, 214, 214);
+}
+
 .imgd {
   height: var(--imgdH);
   width: 100%;
   margin: 30px;
+  margin-top: 60px;
   display: flex;
   justify-content: space-evenly;
 }

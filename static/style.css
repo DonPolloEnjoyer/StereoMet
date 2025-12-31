@@ -10,8 +10,12 @@
   justify-content: center;
 }
 
+
 .m0 {
   margin: 0px;
+}
+.m10px {
+  margin: 10px;
 }
 
 .tc {
@@ -19,6 +23,9 @@
   font-family: Arial, sans-serif;
 }
 
+.t20px {
+  font-size: 20px;
+}
 .t25px {
   font-size: 25px;
 }

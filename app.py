@@ -51,7 +51,7 @@ def home():
 def themes(clas):
     if clas in ["10", "11"]:
         r = open(f"static\\{clas}\\temi.json",
-            encoding="utf-8").read()
+            encoding="UTF-8").read()
         l = json.loads(r)
         # print(l)
         return render_template("themes1.html", spis = l, cl = clas)

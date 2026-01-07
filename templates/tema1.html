@@ -22,6 +22,7 @@
     </p>
   </div>
 
+  <!-- Темы -->
   {% for t in tem['teor'] %}
 
   <div class="blok round1">
@@ -49,12 +50,94 @@
 
   {% endfor %}
 
+
+  <!-- Задания -->
+  {% if tem['zadan'] != None %}
+  
+  {% for n in tem['zadan'] %}
+  {% set num = n[1][2] %}
+
+  <div class="blok round1">
+    {% if n[0][1] != None %}
+    <div class="imgd">
+
+      {% for pic in n[0][1] %}
+          <div class="imgSingle">
+            <img class="round1"
+            src="../static/{{clas}}/{{nom}}/{{pic}}"
+            style="height: var(--imgdH);">
+            <!-- <p class="tf t20px m10px">{{pic}}</p> -->
+          </div>
+      {% endfor %}
+      
+    </div>
+    {% endif %}
+    <div>
+      <div style="margin: 30px; margin-bottom: 30px">
+      {{n[0][0] | safe}}
+      </div>
+
+    <script type="module" id="js{{num}}">
+      const btnp = document.getElementById('btnp{{num}}');
+      const bp = document.getElementById('bp{{num}}');
+      const resh = document.getElementById('resh{{num}}');
+      // btnp.onclick = function resh_pok() {
+      //   resh.style.display = "flex";
+      // };
+      btnp.addEventListener("click", (e) => {
+        if(resh.style.display == "none"){
+          resh.style.display = "flex";
+          resh.style.flexDirection = "column";
+          resh.style.alignItems = "center";
+          bp.textContent = "Скрыть решение"
+        } else {
+          resh.style.display = "none";
+          bp.textContent = "Показать решение"
+        }
+      });
+
+    </script>
+
+      <div style="margin-left: 30px; margin-bottom: 30px;">
+        <button  id="btnp{{num}}" class="btn1 round1">
+          <p class="tf t25px m0" id="bp{{num}}">
+            Показать решение</p>
+        </button>
+      </div>
+    </div>
+
+    
+
+    <div id="resh{{num}}" style="display: none;">
+
+    {% if n[1][1] != None %}
+    <div class="imgd">
+      {% for picr in n[1][1] %}
+          <div class="imgSingle">
+            <img class="round1"
+            src="../static/{{clas}}/{{nom}}/{{picr}}"
+            style="height: var(--imgdH);">
+            <!-- <p class="tf t20px m10px">{{pic}}</p> -->
+          </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+      <div style="margin: 30px; margin-top: 20px;">
+      {{n[1][0] | safe}}
+      </div>
+    </div>
+
+  </div>
+
+  {% endfor %}
+  {% endif %}
+  
   <div class="opis round1" style="margin: 4vh;">
     <p class="tc" style="width: 70%; margin: 30px; font-size: 32px;"">
     Изучение стереометрии с использованием дополненной реальности
     </p>
   </div>
-  
   
   </div>
   </div>
@@ -65,6 +148,13 @@
 
 .fracN {
   math-style: normal;
+}
+
+.btn1 {
+  height: 40px;
+  width: fit-content;
+  background-color: rgba(55, 55, 55, 0.8);
+  color: rgb(205, 205, 205);
 }
 
 .round1 {

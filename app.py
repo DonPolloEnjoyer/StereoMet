@@ -77,6 +77,17 @@ def tema(clas, nom):
             ftem = open(path2_2, encoding="UTF-8").readlines()
         ftem.pop(0)
         l['teor'][i - 1][0] = br_lines(ftem)
+    
+    if(l['zadan'] != None):
+        for n in range(1, len(l['zadan'])):
+            pathn = f"{path}\\n{n}.html"
+            pathO = f"{path}\\o{n}.html"
+            fn = open(pathn, encoding="UTF-8").readlines()
+            fo = open(pathO, encoding="UTF-8").readlines()
+            fn.pop(0); fo.pop(0)
+            l['zadan'][n - 1][0][0] = br_lines(fn)
+            l['zadan'][n - 1][1][0] = br_lines(fo)
+
 
 
     return render_template("tema1.html", tem = l, clas = clas, nom = nom)

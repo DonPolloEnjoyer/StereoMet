@@ -1,6 +1,7 @@
 
 rem Start the Server
 
+C:
 cd C:\Users\IGOR_PC\Documents\GitHub\StereoMet
 rem cd StereoMet
 

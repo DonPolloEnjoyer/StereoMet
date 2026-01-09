@@ -5,9 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import flask as fk
 import json
 
-from to1string import to1str1
-
-
+# from to1string import to1str1
 
 
 app = Flask(__name__)

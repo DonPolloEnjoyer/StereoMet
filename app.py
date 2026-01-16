@@ -77,7 +77,7 @@ def tema(clas, nom):
         l['teor'][i - 1][0] = br_lines(ftem)
     
     if(l['zadan'] != None):
-        for n in range(1, len(l['zadan'])):
+        for n in range(1, len(l['zadan']) + 1):
             pathn = f"{path}\\n{n}.html"
             pathO = f"{path}\\o{n}.html"
             fn = open(pathn, encoding="UTF-8").readlines()

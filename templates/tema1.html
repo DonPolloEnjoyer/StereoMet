@@ -20,6 +20,10 @@
     font-size: 25px;">
       {{tem['opis'] | safe}}
     </p>
+    <div class="imgSingle m10px">
+      <img src="../static/vhod.png" class="round1 im1">
+      <p class="tf t20px m10px">Вход в ARgument</p>
+    </div>
   </div>
 
   <!-- Темы -->
@@ -31,9 +35,8 @@
 
       {% for image in t[1] %}
           <div class="imgSingle">
-            <img class="round1"
-            src="../static/{{clas}}/{{nom}}/{{image[0]}}"
-            style="height: var(--imgdH);">
+            <img class="round1 im1"
+            src="../static/{{clas}}/{{nom}}/{{image[0]}}">
             <p class="tf t20px m10px">{{image[1]}}</p>
           </div>
       {% endfor %}
@@ -63,9 +66,9 @@
 
       {% for pic in n[0][1] %}
           <div class="imgSingle">
-            <img class="round1"
+            <img class="round1 im1"
             src="../static/{{clas}}/{{nom}}/{{pic}}"
-            style="height: var(--imgdH);">
+            >
             <!-- <p class="tf t20px m10px">{{pic}}</p> -->
           </div>
       {% endfor %}
@@ -114,9 +117,9 @@
     <div class="imgd">
       {% for picr in n[1][1] %}
           <div class="imgSingle">
-            <img class="round1"
+            <img class="round1 im1"
             src="../static/{{clas}}/{{nom}}/{{picr}}"
-            style="height: var(--imgdH);">
+            >
             <!-- <p class="tf t20px m10px">{{pic}}</p> -->
           </div>
       {% endfor %}
@@ -166,6 +169,7 @@
   width: 80%;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: rgb(75, 75, 75);
 }
 
@@ -180,7 +184,13 @@
   margin-top: 4vh;
 }
 
+.im1 {
+  height: var(--imgdH);
+  aspect-ratio: 1/1;
+}
+
 .imgSingle {
+  aspect-ratio: 1/1;
   display: flex;
   flex-direction: column;
   justify-content: center;

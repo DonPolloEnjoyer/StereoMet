@@ -1,6 +1,7 @@
 
 :root {
-  --imgdH: 22vh;
+  /* --imgdH: 22vh; */
+  --imgdH: 300px;
 }
 
 .a1 {

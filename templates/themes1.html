@@ -16,12 +16,12 @@
     <p class="t1 t40px" style="margin: 50px ;" >Темы {{cl}} класса</p>
 
     {% for t in spis %}
-    <div class="cl" style="background-color: rgb(69, 69, 69);
-      margin-top: 50px;">
-      <a href="/{{cl}}/{{t[1]}}" class="a1"">
-      <p class="tc t30px">{{t[0]}}</p>
-      </a>
-    </div>
+    <a href="/{{cl}}/{{t[1]}}" class="a1" style="width: 70%;">
+      <div class="cl" style="background-color: rgb(69, 69, 69);
+        margin-top: 50px;">
+        <p class="tc t30px">{{t[0]}}</p>
+      </div>
+    </a>
     {% endfor %}
     
 

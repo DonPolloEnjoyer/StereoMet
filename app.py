@@ -97,7 +97,7 @@ if( __name__ == '__main__' ):
 
 
 # flask --app app run --host="0.0.0.0" --port=3306 --debug
-# , ssl_context = 'adhoc'
+
 # C:\Users\IGOR_PC\Documents\GitHub\StereoMet\app.py
 
 

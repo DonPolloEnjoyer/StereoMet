@@ -9,7 +9,7 @@
 
 </head>
 <body class="main1">
-<div class="centerWin" style="height: 88vh;">
+<div class="centerWin" style="height: 130vh;">
 <div class="centerSub" style="
   background-color:rgb(55, 55, 55); justify-content: top; 
   align-items: center;">
@@ -33,6 +33,23 @@
   </a>
 
 
+  <div class="imgd">
+
+    <div class="imgSingle">
+      <img class="round1 im1"
+      src="../static/GGlplay.png">
+      <p class="tf t20px m10px">ARGUMENT в Google play</p>
+    </div>
+
+    <div class="imgSingle">
+      <img class="round1 im1"
+      src="../static/APPSTR.png">
+      <p class="tf t20px m10px">ARGUMENT в App Store</p>
+    </div>
+      
+  </div>
+
+
 </div>
 </div>
 
@@ -41,6 +58,33 @@
 </html>
 
 <style>
+
+.im1 {
+  height: var(--imgdH);
+  aspect-ratio: 1/1;
+}
+
+.imgSingle {
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: max-content;
+  
+  color: yellow;
+  color: rgb(214, 214, 214);
+}
+
+.imgd {
+  height: var(--imgdH);
+  width: 100%;
+  margin: 30px;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .a1 {
   text-decoration: none;

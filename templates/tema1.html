@@ -8,9 +8,22 @@
   <link rel="icon" type="image" href="../static/favicon.ico">
 </head>
 <body class="main1">
-  <div class="centerWin">
-  <div class="centerSub" style="background-color:rgb(55, 55, 55); justify-content: top; align-items: center;">
-  
+
+  <script type="module">
+    const cWin = document.getElementById("cWin");
+    const cSub = document.getElementById("cSub");
+    function Wtoosmall(){
+      if(cWin.clientWidth * 0.7 <= 820 ){
+        cSub.style.width = "820px";
+      } else if(cWin.clientWidth * 0.7 > 820) {
+        cSub.style.width = "70%";
+      }}
+    Wtoosmall();
+    window.addEventListener("resize", Wtoosmall);
+  </script>
+
+  <div class="centerWin" id="cWin">
+  <div class="centerSub" id="cSub" style="background-color:rgb(55, 55, 55);">
     <p class="tc t40px" style="margin-top: 6vh; margin-bottom: 4vh;">
     {{tem['nazv']}}
   </p>
@@ -163,7 +176,7 @@
 
 .opis {
   height: fit-content;
-  width: 80%;
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,7 +188,7 @@
 }
 
 .blok {
-  width: 80%;
+  width: 90%;
   height: fit-content;
   display: flex;
   flex-direction: column;

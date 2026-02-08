@@ -8,8 +8,20 @@
     <link rel="icon" type="image" href="../static/favicon.ico">
 </head>
 <body class="main1">
-  <div class="centerWin" style="height: 88vh;">
-  <div class="centerSub" style="
+  <script type="module">
+    const cWin = document.getElementById("cWin");
+    const cSub = document.getElementById("cSub");
+    function Wtoosmall(){
+      if(cWin.clientWidth * 0.7 <= 800 ){
+        cSub.style.width = "800px";
+      } else if(cWin.clientWidth * 0.7 > 800) {
+        cSub.style.width = "70%";
+      }}
+    Wtoosmall();
+    window.addEventListener("resize", Wtoosmall);
+  </script>
+  <div class="centerWin" id="cWin" style="height: 88vh;">
+  <div class="centerSub" id="cSub" style="
     background-color:rgb(55, 55, 55); justify-content: top; 
     align-items: center;">
 

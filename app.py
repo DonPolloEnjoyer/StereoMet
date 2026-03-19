@@ -94,7 +94,7 @@ def tema(clas, nom):
 
 if( __name__ == '__main__' ):
     # print(os.system("dir"))
-    app.run(host = "0.0.0.0", port = 3306, debug = True)
+    app.run(host = "127.0.0.1", port = 3306, debug = True)
 
 
 # flask --app app run --host="0.0.0.0" --port=3306 --debug
